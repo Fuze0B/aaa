@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+string szyfr(string s) {
+    string wyraz = "";
+    for(int i = 0 ; i < s.length();i+=2){
+        //zabezpieczenie dla przypadku, w którym wyraz ma nieparzystą ilość liter
+        if(i==s.length()-1){
+                wyraz+=s[i];
+            return wyraz;
+        }
+        //zamiana kolejności liter
+        wyraz+=s[i+1]; //a, u, a
+        wyraz+=s[i]; //m, t, r
+    }
+    return wyraz;
+}
+
+int main()
+{
+    
+cout << szyfr("matur");
+    return 0;
+}
+
+//matura
+// ma tu ra
+// am ut ar
