@@ -1,0 +1,36 @@
+#include "string"
+#include <iostream>
+
+using namespace std;
+
+
+string napol(string wyraz) {
+  int polowa = wyraz.length() / 2; //4 
+  string polowa1;
+  string polowa2;
+  for (int i = 0; i < polowa; i++) {
+
+      polowa1+=wyraz[i];
+  }
+    for(int i=polowa;i<wyraz.length();i++)
+        {
+            polowa2+=wyraz[i];
+        }
+
+    string polaczone=polowa2+polowa1;
+
+  return polaczone;
+
+}
+
+int main() { 
+string wyraz;
+    cout<<"Podaj słowo do zmiany miejscem : "<<endl;
+    cin>>wyraz;
+
+
+    cout<<napol(wyraz);
+
+
+    return 0;
+}
