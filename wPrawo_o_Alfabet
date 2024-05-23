@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+string szyfr(string w,string k){
+    string wynik = "";
+    int j = 0;
+    for(int i = 0; i < w.length();i++){
+        if(w[i] + k[j] - 'A' + 1 > 'Z'){
+            wynik += w[i] + k[j]-'A'+1-26;
+        }
+        else{
+            wynik += w[i] + k[j] - 'A' + 1;
+            //kiedy:
+            //i = 0, k[j] = 'A', a więc 'A' - 'A' + 1 == 1 ('A' jest pierwszą literą w alfabecie, przesuwamy znak o 1)
+            //i = 1, k[j] = 'B', a więc 'B' - 'A' + 1 == 2 ('B' jest drugą literą w alfabecie, przesuwamy znak o 2)
+            //i = 2, k[j] = 'C', a więc 'C' - 'A' + 1 == 3 ('C' jest trzecią literą w alfabecie, przesuwamy znak o 3)
+            //i = 3, k[j] = 'A', a więc 'A' - 'A' + 1 == 1 ('A' jest pierwszą literą w alfabecie, przesuwamy znak o 1)
+            
+            //k[j] - 'A' + 1 ---> określa, którą z kolei literą jest litera z klucza w alfabecie
+        }
+        
+        
+        j++;
+        if(j==k.length()){
+            j = 0;
+        }   
+
+    }
+    return wynik;
+}
+
+
+int main()
+{
+    cout << szyfr("MARTA","ABC");
+    return 0;
+}
+
+/*
+    wyraz   klucz    zaszyfrowane
+    
+i = 0, M     A     --> N
+i = 1, A     B     --> C
+i = 2, R     C     --> U
+i = 3, T     A     --> U
+i = 4, A     B     --> C
+
+
+*/
