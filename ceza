@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+abcdefghijklmnopqrstuvwxyz
+
+abc 2
+cde
+
+abc 28
+cde
+
+28 % 26 = 2
+
+2 % 26 = 2
+
+xyz 2
+zab
+*/
+
+string cezar(string w, int k){
+    string szyfr="";
+    k=k%26;
+    for(int i = 0 ; i < w.length();i++){
+        if(w[i]+k>122){
+            szyfr+=w[i]+k-26;
+        }
+        else{
+            szyfr+=w[i]+k;
+        }
+    }
+    return szyfr;
+}
+
+string decezar(string w, int k){
+    string szyfr="";
+    k=k%26;
+    for(int i = 0 ; i < w.length();i++){
+        if(w[i]-k<'a'){
+            szyfr+=w[i]-k+26;
+        }
+        else{
+            szyfr+=w[i]-k;
+        }
+    }
+    return szyfr;
+}
+int main()
+{
+   cout <<  cezar("ala", 2) << endl;
+   cout <<  decezar("cnc", 2);
+
+    return 0;
+}
